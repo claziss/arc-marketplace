@@ -1,0 +1,3 @@
+[submodule "benchmark/csibe"]
+	path = benchmark/csibe
+	url = git@github.com:claziss/csibe.git
