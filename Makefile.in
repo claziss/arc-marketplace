@@ -20,10 +20,34 @@ arm/build-csibe: arc/build-csibe
 	reports/size/gcc-cortex-m4.csv
 
 arc/hs4xd/ncam: reports/report.md
+	$(MAKE) -C benchmark/tests clean
 	$(MAKE) -C benchmark/tests run
 	$(MAKE) -C benchmark/tests reports
 	head -n 15  $< > $(TEMPFILE)
 	echo "## NCAM runs for HS4xD" >> $(TEMPFILE)
+	echo "Benchmark | Score" >> $(TEMPFILE)
+	echo "-----|----:" >> $(TEMPFILE)
+	cat benchmark/tests/*.rep >> $(TEMPFILE)
+	cp $(TEMPFILE) $<
+
+arc/archs/xcam: reports/report.md
+	$(MAKE) -C benchmark/tests clean
+	$(MAKE) -C benchmark/tests run SIM=xcam CPU=archs
+	$(MAKE) -C benchmark/tests reports
+	head -n 27  $< > $(TEMPFILE)
+	echo "" >> $(TEMPFILE)
+	echo "## XCAM runs for ARC HS" >> $(TEMPFILE)
+	echo "Benchmark | Score" >> $(TEMPFILE)
+	echo "-----|----:" >> $(TEMPFILE)
+	cat benchmark/tests/*.rep >> $(TEMPFILE)
+	cp $(TEMPFILE) $<
+
+arc/arcem/xcam: reports/report.md
+	$(MAKE) -C benchmark/tests clean
+	$(MAKE) -C benchmark/tests run SIM=xcam CPU=arcem
+	$(MAKE) -C benchmark/tests reports
+	head -n 40  $< > $(TEMPFILE)
+	echo "## XCAM runs for ARC EM" >> $(TEMPFILE)
 	echo "Benchmark | Score" >> $(TEMPFILE)
 	echo "-----|----:" >> $(TEMPFILE)
 	cat benchmark/tests/*.rep >> $(TEMPFILE)
