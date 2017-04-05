@@ -1,3 +1,6 @@
 [submodule "benchmark/csibe"]
 	path = benchmark/csibe
 	url = git@github.com:claziss/csibe.git
+[submodule "benchmark/tests"]
+	path = benchmark/tests
+	url = git@github.com:claziss/arc-tests.git
