@@ -4,3 +4,6 @@
 [submodule "benchmark/tests"]
 	path = benchmark/tests
 	url = git@github.com:claziss/arc-tests.git
+[submodule "reports"]
+	path = reports
+	url = git@github.com:claziss/arc-reports.git
