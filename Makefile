@@ -1,5 +1,7 @@
+TEMPFILE := $(shell mktemp)
 
 size: arc/build-csibe
+	$(MAKE) -C reports
 
 arc/build-csibe: benchmark/csibe
 	rm -rf $@ $(notdir $@)
@@ -16,3 +18,13 @@ arm/build-csibe: arc/build-csibe
 	reports/size/gcc-cortex-m0.csv
 	cp $(notdir $@)/gcc-cortex-m4/all_results.csv \
 	reports/size/gcc-cortex-m4.csv
+
+arc/hs4xd/ncam: reports/report.md
+	$(MAKE) -C benchmark/tests run
+	$(MAKE) -C benchmark/tests reports
+	head -n 15  $< > $(TEMPFILE)
+	echo "## NCAM runs for HS4xD" >> $(TEMPFILE)
+	echo "Benchmark | Score" >> $(TEMPFILE)
+	echo "-----|----:" >> $(TEMPFILE)
+	cat benchmark/tests/*.rep >> $(TEMPFILE)
+	cp $(TEMPFILE) $<
