@@ -37,10 +37,5 @@ arc/arcem/xcam:
 	$(MAKE) -C benchmark/tests clean
 	$(MAKE) -C benchmark/tests run SIM=xcam CPU=arcem ARCH=av2em
 	$(MAKE) -C benchmark/tests reports
-	head -n 40  $< > $(TEMPFILE)
-	echo "" >> $(TEMPFILE)
-	echo "## XCAM runs for ARC EM" >> $(TEMPFILE)
-	echo "Benchmark | Score" >> $(TEMPFILE)
-	echo "-----|----:" >> $(TEMPFILE)
-	cat benchmark/tests/*.rep >> $(TEMPFILE)
-	cp $(TEMPFILE) $<
+	cat  benchmark/tests/*.rep > reports/performance/arc_arcem_xcam.txt
+	$(MAKE) -C reports arc/arcem/xcam.perf
