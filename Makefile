@@ -1,6 +1,6 @@
 TEMPFILE := $(shell mktemp)
 
-size: arc/build-csibe
+all: arc/build-csibe
 	$(MAKE) -C reports
 
 arc/build-csibe: benchmark/csibe
