@@ -11,7 +11,7 @@ arc/build-csibe: benchmark/csibe
 	cp $(notdir $@)/gcc-arc-em/all_results.csv reports/size/gcc-arc-em.csv
 	cp $(notdir $@)/gcc-arc-hs/all_results.csv reports/size/gcc-arc-hs.csv
 
-arm/build-csibe: arc/build-csibe
+arm/build-csibe:
 	benchmark/csibe/csibe.py gcc-cortex-m0 gcc-cortex-m4 gcc-cortex-a7 \
 	gcc-cortex-r5 CSiBE-v2.1.1 --build-dir $(notdir $@) -j8
 	cp $(notdir $@)/gcc-cortex-m0/all_results.csv \
