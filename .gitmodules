@@ -1,9 +1,9 @@
 [submodule "benchmark/csibe"]
 	path = benchmark/csibe
-	url = git@github.com:claziss/csibe.git
+	url = https://github.com/claziss/csibe.git
 [submodule "benchmark/tests"]
 	path = benchmark/tests
-	url = git@github.com:claziss/arc-tests.git
+	url = https://github.com/claziss/arc-tests.git
 [submodule "reports"]
 	path = reports
-	url = git@gitsnps.internal.synopsys.com:arc_oss/arc-reports.git
+	url = https://gitsnps.internal.synopsys.com/arc_oss/arc-reports.git
