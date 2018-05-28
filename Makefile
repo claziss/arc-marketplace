@@ -33,13 +33,13 @@ arc/hs4xd/ncam:
 arc/archs/xcam:
 	$(MAKE) -C benchmark/tests clean
 	$(MAKE) -C benchmark/tests run SIM=xcam CPU=archs
-	$(MAKE) -C benchmark/tests reports
+	$(MAKE) -C benchmark/tests reports SIM=xcam CPU=archs
 	cat  benchmark/tests/*.rep > reports/performance/arc_archs_xcam.txt
 	$(MAKE) -C reports arc/archs/xcam.perf
 
 arc/arcem/xcam:
 	$(MAKE) -C benchmark/tests clean
 	$(MAKE) -C benchmark/tests run SIM=xcam CPU=arcem ARCH=av2em
-	$(MAKE) -C benchmark/tests reports
+	$(MAKE) -C benchmark/tests reports SIM=xcam CPU=arcem ARCH=av2em
 	cat  benchmark/tests/*.rep > reports/performance/arc_arcem_xcam.txt
 	$(MAKE) -C reports arc/arcem/xcam.perf
