@@ -6,4 +6,4 @@
 	url = https://github.com/claziss/arc-tests.git
 [submodule "reports"]
 	path = reports
-	url = https://gitsnps.internal.synopsys.com/arc_oss/arc-reports.git
+	url = git@gitsnps.internal.synopsys.com:arc_oss/arc-reports.git
