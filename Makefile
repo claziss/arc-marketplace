@@ -61,6 +61,16 @@ arc/arc625/xcam:
 	$(MAKE) -C benchmark/tests reports SIM=xcam CPU=arc625
 	cat  benchmark/tests/*.rep > reports/performance/arc_arc625_xcam.txt
 
+riscv/rv32imc/eembc:
+	$(MAKE) -C benchmark/tests clean
+	$(MAKE) -C benchmark/tests size SIM=sim CPU=rv32imc ARC_PREFIX=riscv32-unknown-elf- 
+	cat benchmark/tests/*.rep | grep -P "^\s+[0-9a-f]+\s+" > reports/size/gcc-rv32imc-eembc.txt
+
+arc/hs44/eembc:
+	$(MAKE) -C benchmark/tests clean
+	$(MAKE) -C benchmark/tests size SIM=xcam CPU=hs4x
+	cat benchmark/tests/*.rep | grep -P "^\s+[0-9a-f]+\s+" > reports/size/gcc-hs44-eembc.txt
+
 arc: arc/hs44/xcam arc/hs38/xcam arc/em4/xcam arc/arc700/xcam arc/arc625/xcam
 
 clean:
